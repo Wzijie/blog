@@ -29,7 +29,7 @@ module.exports = function (source) {
     export default () => (<div className="md-block" dangerouslySetInnerHTML={{__html: \`${content}\`}} />);
   `;
 
-  createDemoSource(result, 'test');
+  process.env.MD_TEST && createDemoSource(result, 'test');
 
   return result;
 }
