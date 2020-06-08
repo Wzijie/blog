@@ -1,21 +1,21 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Layout } from 'antd';
 import navConfig from '../../nav.config';
-import Sidebar from './Sidebar';
 import styles from './index.module.less';
-
-const { Footer } = Layout;
+import Sidebar from './Sidebar';
+import Footer from './Footer';
+import Header from './Header';
 
 const Container = ({ children }) => {
   const location = useLocation();
 
   return (
     <div className={styles.main}>
+      <Header />
       <Sidebar pathname={location.pathname} data={navConfig} />
       <div className={styles.content}>
         {children}
-        <Footer className="site-layout-background" style={{ textAlign: 'center' }}>备案信息</Footer>
+        <Footer />
       </div>
     </div>
   );
