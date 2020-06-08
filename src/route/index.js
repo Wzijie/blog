@@ -12,7 +12,7 @@ const routes = [{
   return {
     ...item,
     path,
-    component: lazy(() => import(`../article/${path.replace('/', '')}.md`)),
+    component: lazy(() => import(`../article${path}.md`)),
   };
 })];
 

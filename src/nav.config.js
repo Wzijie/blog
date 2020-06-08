@@ -3,7 +3,10 @@ const navConfig = [{
   children: [],
 }, {
   name: 'CSS',
-  children: [],
+  children: [{
+    name: 'backdrop-filter 实现毛玻璃效果',
+    path: '/CSS/backdrop-filter',
+  }],
 }, {
   name: 'HTML',
   children: [],
@@ -11,7 +14,7 @@ const navConfig = [{
   name: '随笔',
   children: [{
     name: '2019 年终总结',
-    path: '/summary-2019',
+    path: '/essay/summary-2019',
   }],
 }];
 
