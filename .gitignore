@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /demo
+/server/node_modules
+/server/secret.js

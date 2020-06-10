@@ -16,8 +16,6 @@ const routes = [{
   };
 })];
 
-console.log(routes, 'routes')
-
 const getRouter = () => {
   return routes.map(({ name, redirect, path, ...rest }) => {
     if (redirect) return <Redirect key={path} from={path} to={redirect} {...rest} />
