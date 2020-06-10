@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 
 app.post('/deploy', async (req, res) => {
-  if (secret !== req.body.secret) return res.status(500).json({ error: 'invalid secret' });
+  if (secret !== req.body.sender.login) return res.status(500).json({ error: 'invalid secret' });
 
   deploy()
     .then(() => res.json({ code: 200, message: 'deploy success' }))
