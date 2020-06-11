@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import { Switch, BrowserRouter as Router } from 'react-router-dom';
 import { getRouter } from '../../route';
 import Container from '../../components/Layout';
-import './index.less';
 
 function App() {
   return (
