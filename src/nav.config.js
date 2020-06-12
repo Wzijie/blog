@@ -11,6 +11,12 @@ const navConfig = [{
   name: 'HTML',
   children: [],
 }, {
+  name: '其他',
+  children: [{
+    name: '基于GitHub Webhook自动部署',
+    path: '/other/automatic-deploy',
+  }],
+}, {
   name: '随笔',
   children: [{
     name: '2019 年终总结',
