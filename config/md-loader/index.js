@@ -1,5 +1,6 @@
 const hljs = require('highlight.js');
 const fs = require('fs');
+const moment = require('moment');
 
 let fileIndex = 0;
 
@@ -53,8 +54,8 @@ module.exports = async function (source) {
   } else {
     const { mtime, birthtime } = fileInfo;
     const timeInfo = `<p class="time-info">
-      <span>创建于 ${birthtime.toLocaleString()}</span>
-      <span>编辑于 ${mtime.toLocaleString()}</span>
+      <span>创建于 ${moment(birthtime).format('YYYY-MM-DD HH:mm')}</span>
+      <span>编辑于 ${moment(mtime).format('YYYY-MM-DD HH:mm')}</span>
     </p>`;
     content = `${content}${timeInfo}`;
   }
