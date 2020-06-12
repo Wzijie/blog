@@ -21,20 +21,43 @@ const createDemoSource = (source, fileName) => {
   });
 }
 
+// 获取文件信息，主要是创建时间和修改时间
+const getFileInfo = path => {
+  return new Promise(resolve => {
+    fs.stat(path, (err, stats) => {
+      if (err) resolve([err]);
+      resolve([err, stats]);
+    });
+  });
+}
+
 const md = require('markdown-it')({
-  highlight: function (str, lang) {
+  highlight: (str, lang) => {
     if (lang && hljs.getLanguage(lang)) {
-      try {
-        const code = `<pre class="hljs"><code class="block">${hljs.highlight(lang, str, true).value}</code></pre>`;
-        return code;
-      } catch (__) { }
+      const code = `<pre class="hljs"><code class="block">${hljs.highlight(lang, str, true).value}</code></pre>`;
+      return code;
     }
     return '<pre class="hljs"><code class="block">' + md.utils.escapeHtml(str) + '</code></pre>';
   }
 });
 
-module.exports = function (source) {
-  const content = md.render(source);
+module.exports = async function (source) {
+  const callback = this.async();
+
+  let content = md.render(source);
+
+  const [err, fileInfo = {}] = await getFileInfo(this.resourcePath);
+
+  if (err) {
+    this.emitError(err);
+  } else {
+    const { mtime, birthtime } = fileInfo;
+    const timeInfo = `<p class="time-info">
+      <span>创建于 ${birthtime.toLocaleString()}</span>
+      <span>编辑于 ${mtime.toLocaleString()}</span>
+    </p>`;
+    content = `${content}${timeInfo}`;
+  }
 
   const result = `
     import React from 'react';
@@ -44,5 +67,5 @@ module.exports = function (source) {
 
   process.env.MD_TEST && createDemoSource(result, 'test');
 
-  return result;
+  callback(null, result);
 }
