@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(express.json());
 
-app.post('/deploy', async (req, res) => {
+app.post('/deploy', (req, res) => {
   // 校验签名，是否为GitHub的Webhook调用
   const checkMessage = checkSignature(
     JSON.stringify(req.body),

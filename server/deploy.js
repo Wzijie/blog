@@ -41,9 +41,7 @@ const build = () => {
 const copy = () => {
   // 判断是否已有build目录，有的话需要删除
   const hasBuildFolder = shell.find('./build').code === 0;
-  if (hasBuildFolder) {
-    throwSynchronouslyError(shell.rm('-r', './build'));
-  }
+  if (hasBuildFolder) throwSynchronouslyError(shell.rm('-r', './build'));
   throwSynchronouslyError(shell.cp('-r', '../build', './build'));
 }
 
