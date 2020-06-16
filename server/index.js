@@ -5,6 +5,8 @@ const hmacSha1 = require('crypto-js/hmac-sha1');
 const secret = require('./secret');
 const app = express();
 
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 9000;
+
 const checkSignature = (message, githubSignature) => {
   // 签名算法为 sha1 的 HMAC 16 进制值
   const localSignature = `sha1=${hmacSha1(message, secret)}`;
@@ -35,4 +37,4 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(9000);
+app.listen(DEFAULT_PORT);
