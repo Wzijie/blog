@@ -1,6 +1,9 @@
 const navConfig = [{
   name: 'JavaScript',
-  children: [],
+  children: [{
+    name: 'img-zoom 图片宽高缩放',
+    path: '/JS/img-zoom',
+  }],
 }, {
   name: 'CSS',
   children: [{
