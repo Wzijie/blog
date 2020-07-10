@@ -1,6 +1,12 @@
 const navConfig = [{
   name: 'JavaScript',
   children: [{
+    name: '数组乱序',
+    path: '/JS/array-disorder',
+  },{
+    name: '用遍历来实现斐波那契数列',
+    path: '/JS/fibonacci',
+  }, {
     name: 'img-zoom 图片宽高缩放',
     path: '/JS/img-zoom',
   }],
