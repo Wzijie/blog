@@ -12,13 +12,18 @@ const moment = require('moment');
 //   });
 // }
 
-// 将代码字符中的反引号"`"以及${xxx}的"$"前面加上"\"字符进行转义
+// 对代码字符的一些特殊情况进行字符替换
 const codeFormat = mdContent => {
-  // 将`xxxxx`替换为 \`xxxxx`\
-  const format1 = mdContent.replace(/`(.{0,})`/g, '\\`$1\\`');
-  // 将${xxxxx}替换为/${xxxxx}，2个$$变量表示插入一个"$"，$1为第一个捕获内容
-  const format2 = format1.replace(/\$(\{.{0,}\})/g, '\\$$$1');
-  return format2;
+  // Tips: 替换方法需按顺序执行
+  const formatHandlers = [
+    // // 将\替换为\\
+    str => str.replace(/\\{1}/g, '\\\\'),
+    // 将`xxxxx`替换为 \`xxxxx`\
+    str => str.replace(/`(.{0,})`/g, '\\`$1\\`'),
+    // 将${xxxxx}替换为\${xxxxx}，2个$$变量表示插入一个"$"，$1为第一个捕获内容
+    str => str.replace(/\$(\{.{0,}\})/g, '\\$$$1'),
+  ]
+  return formatHandlers.reduce((formatedStr, handler) =>  handler(formatedStr), mdContent);
 }
 
 // 将要传递给babel-loader编译的React字符串模板写入到demo目录下，主要是调试用
