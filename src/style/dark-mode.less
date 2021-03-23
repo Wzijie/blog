@@ -1,0 +1,78 @@
+.dark-mode {
+  background-color: #1a202c;
+  color: rgba(255, 255, 255, .8);
+
+  .header {
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px rgba(255, 255, 255, .1);
+    background: #463a3a21; // rgba(70, 58, 58, .13)
+
+    h1 {
+      color: inherit !important;
+    }
+  }
+
+  .sidebar {
+    .group-title {
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .navItem a {
+      &:not(.active) {
+        color: #abb2bf
+      }
+
+      &:hover {
+        color: #61afef;
+      }
+
+      &.active {
+        color: #61afef;
+      }
+    }
+  }
+
+  .themeWidgets {
+    background-color: #001529;
+    color: rgba(255, 255, 255, .65);
+  }
+
+  .md-block {
+    p {
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: #a0aec0;
+    }
+
+    code:not(.block) {
+      background-color: #212935;
+      border-color: #212935;
+    }
+
+    blockquote {
+      background-color: rgba(236, 248, 255, .05);
+      border-color: rgba(80, 191, 255, .6);
+
+      code:not(.block) {
+        color: inherit;
+        background-color: rgba(255, 255, 255, .1);
+      }
+    }
+
+    pre.hljs {
+      background-color: #212935;
+      border-color: #212935;
+      color: inherit;
+    }
+
+    .hljs-subst {
+      color: #e2e8f0;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../index.module.less';
 
 const Header = () => (
-  <header className={styles.header}>
+  <header className={`${styles.header} header`}>
     <div className={styles.headerContent}>
       <h1 className={styles.title}>杂谈、随笔分享</h1>
     </div>

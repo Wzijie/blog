@@ -6,6 +6,7 @@ import styles from './index.module.less';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 import Header from './Header';
+import ThemeWidgets from './ThemeWidgets';
 
 const routePathInNameMap = routes.reduce((prev, { path, name }) => {
   return { ...prev, [path]: name };
@@ -26,6 +27,7 @@ const Container = ({ children }) => {
         {children}
         <Footer />
       </div>
+      <ThemeWidgets />
     </div>
   );
 }
