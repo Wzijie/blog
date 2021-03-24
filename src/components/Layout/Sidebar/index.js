@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
 import './sidebar.less';
 
@@ -14,9 +15,11 @@ const RouteList = ({ routes }) => (
   </ul>
 );
 
-const Sidebar = ({ data }) => {
+const Sidebar = ({ data, sidebarOpened, onSidebarOpenedToggle }) => {
+  const sidebarOpenedClassName = sidebarOpened ? 'open' : '';
+
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebarOpenedClassName}`}>
       <div className="fixed">
         <ul>
           {data.map(({ name, children }) => {
@@ -29,6 +32,12 @@ const Sidebar = ({ data }) => {
           })}
         </ul>
       </div>
+      {
+        ReactDOM.createPortal(
+          <div className={`sidebar-mask ${sidebarOpenedClassName}`} onClick={onSidebarOpenedToggle} />,
+          document.body,
+        )
+      }
     </div>
   );
 }

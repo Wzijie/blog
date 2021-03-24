@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import navConfig from '../../nav.config';
 import { routes } from '../../route';
@@ -19,10 +19,19 @@ const Container = ({ children }) => {
     document.title = `${routePathInNameMap[location.pathname]} - Wzijie Blog`;
   }, [location]);
 
+  const [sidebarOpened, setSidebarOpened] = useState(false);
+
+  const onSidebarOpenedToggle = () => setSidebarOpened(opened => !opened);
+
   return (
     <div className={styles.main}>
-      <Header />
-      <Sidebar pathname={location.pathname} data={navConfig} />
+      <Header sidebarOpened={sidebarOpened} onSidebarOpenedToggle={onSidebarOpenedToggle} />
+      <Sidebar
+        pathname={location.pathname}
+        data={navConfig}
+        sidebarOpened={sidebarOpened}
+        onSidebarOpenedToggle={onSidebarOpenedToggle}
+      />
       <div className={styles.content}>
         {children}
         <Footer />

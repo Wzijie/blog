@@ -3,6 +3,11 @@
   height: 100%;
   overflow: auto;
   flex-shrink: 0;
+  background-color: rgba(255, 255, 255, .6);
+
+  &.open {
+    transform: translateX(0);
+  }
 
   .fixed {
     position: fixed;
@@ -54,4 +59,28 @@
   color: #999;
   line-height: 26px;
   margin-top: 15px;
+}
+
+.sidebar-mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9997;
+
+  &.open {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 9998;
+    backdrop-filter: blur(8px);
+    transition: transform .3s ease;
+    transform: translateX(-100%);
+  }
 }

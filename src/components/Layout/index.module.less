@@ -31,18 +31,24 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
   box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.2);
 
   .headerContent {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: @main-width;
     height: 100%;
     margin: 0 auto;
     padding: 0 @container-padding;
+
+    .menuToggle {
+      display: none;
+      margin-right: 16px;
+      font-size: 22px;
+    }
 
     .title {
       margin: 0;
@@ -55,9 +61,22 @@
 }
 
 @media screen and (max-width: 1156px) {
-
   .main,
   .header .headerContent {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    min-width: auto;
+  }
+
+  .header .headerContent .menuToggle {
+    display: inline-block;
+  }
+
+  .content {
     width: 100%;
   }
 }
