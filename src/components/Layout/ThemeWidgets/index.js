@@ -44,8 +44,19 @@ const useSystemDarkModeChange = onChange => {
 
   useEffect(() => {
     const setThemeMode = e => onChange(e.matches ? DARK_MODE : LIGHT_MODE);
-    matchMedia.addEventListener('change', setThemeMode);
-    return () => matchMedia.removeEventListener('change', setThemeMode);
+
+    const hasEventListener = matchMedia.addEventListener && matchMedia.removeEventListener;
+
+    // 兼容处理，已知safari不支持matchMedia的addEventListener方法
+    hasEventListener
+      ? matchMedia.addEventListener('change', setThemeMode)
+      : matchMedia.addListener(setThemeMode);
+
+    return () => {
+      hasEventListener
+        ? matchMedia.removeEventListener('change', setThemeMode)
+        : matchMedia.removeListener(setThemeMode);
+    }
   }, [matchMedia, onChange]);
 }
 
