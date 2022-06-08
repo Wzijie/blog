@@ -53,4 +53,6 @@ const navConfig = [{
   }],
 }];
 
-export default navConfig;
+// 需要用 node 获取该文件内容，所以使用 module.exports
+module.exports = navConfig;
+// export default navConfig;

@@ -70,7 +70,8 @@
     "start": "cross-env BROWSER=none node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "start:md-test": "cross-env BROWSER=none MD_TEST=true node scripts/start.js"
+    "start:md-test": "cross-env BROWSER=none MD_TEST=true node scripts/start.js",
+    "build:readme": "node scripts/build-readme/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
