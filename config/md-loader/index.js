@@ -12,6 +12,10 @@ const moment = require('moment');
 //   });
 // }
 
+const imgSrcReplace = str => str.replace(/<img src="(.{0,})" alt="(.{0,})">/g, (_, src, alt) => {
+  return `<img src="$\{require("${src}")}" alt="${alt}" />`
+})
+
 // 对代码字符的一些特殊情况进行字符替换
 const codeFormat = mdContent => {
   // Tips: 替换方法需按顺序执行
@@ -22,8 +26,9 @@ const codeFormat = mdContent => {
     str => str.replace(/`(.{0,})`/g, '\\`$1\\`'),
     // 将${xxxxx}替换为\${xxxxx}，2个$$变量表示插入一个"$"，$1为第一个捕获内容
     str => str.replace(/\$(\{.{0,}\})/g, '\\$$$1'),
+    imgSrcReplace,
   ]
-  return formatHandlers.reduce((formatedStr, handler) =>  handler(formatedStr), mdContent);
+  return formatHandlers.reduce((formatedStr, handler) => handler(formatedStr), mdContent);
 }
 
 // 将要传递给babel-loader编译的React字符串模板写入到demo目录下，主要是调试用
@@ -75,7 +80,9 @@ module.exports = async function (source) {
   const result = `
     import React from 'react';
 
-    export default () => (<div className="md-block" dangerouslySetInnerHTML={{__html: \`${codeFormat(content)}\`}} />);
+    export default () => {
+      return (<div className="md-block" dangerouslySetInnerHTML={{__html: \`${codeFormat(content)}\`}} />);
+    }
   `;
 
   process.env.MD_TEST && createDemoSource(result, this.resourcePath);
