@@ -1,20 +1,20 @@
 const navConfig = [{
   name: 'JavaScript',
   children: [{
-    name: '数组乱序',
-    path: '/JS/array-disorder',
-    createTime: '2020-07-10 17:06',
-    updateTime: '2020-07-10 17:06',
-  },{
-    name: '用遍历来实现斐波那契数列',
-    path: '/JS/fibonacci',
-    createTime: '2020-07-10 17:06',
-    updateTime: '2020-07-10 17:06',
-  }, {
     name: 'img-zoom 图片宽高缩放',
     path: '/JS/img-zoom',
     createTime: '2020-07-08 18:24',
     updateTime: '2020-07-08 18:24',
+  }, {
+    name: '数组乱序',
+    path: '/JS/array-disorder',
+    createTime: '2020-07-10 17:06',
+    updateTime: '2020-07-10 17:06',
+  }, {
+    name: '用遍历来实现斐波那契数列',
+    path: '/JS/fibonacci',
+    createTime: '2020-07-10 17:06',
+    updateTime: '2020-07-10 17:06',
   }],
 }, {
   name: 'CSS',
@@ -30,6 +30,11 @@ const navConfig = [{
 }, {
   name: '笔记',
   children: [{
+    name: '一次内存泄漏排查过程',
+    path: '/note/一次内存泄漏排查过程',
+    createTime: '2022-06-15 00:00',
+    updateTime: '2022-06-15 00:00',
+  }, {
     name: '超过最大整数精度丢失',
     path: '/note/超过最大整数精度丢失',
     createTime: '2021-02-05 10:53',

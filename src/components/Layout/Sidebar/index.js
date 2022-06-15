@@ -18,11 +18,13 @@ const RouteList = ({ routes }) => (
 const Sidebar = ({ data, sidebarOpened, onSidebarOpenedToggle }) => {
   const sidebarOpenedClassName = sidebarOpened ? 'open' : '';
 
+  const navList = data.filter(({ children }) => Array.isArray(children) && children.length > 0);
+
   return (
     <div className={`sidebar ${sidebarOpenedClassName}`}>
       <div className="fixed">
         <ul>
-          {data.map(({ name, children }) => {
+          {navList.map(({ name, children }) => {
             return (
               <li key={name} className="group-title">
                 <p>{name}</p>
