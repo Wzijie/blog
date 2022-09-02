@@ -7,7 +7,7 @@ const RouteList = ({ routes }) => (
   <ul>
     {routes.map(({ name: subTitle, path }) => {
       return (
-        <li key={path} className="navItem">
+        <li key={path} className="navItem" title={subTitle}>
           <NavLink to={path}>{subTitle}</NavLink>
         </li>
       );
