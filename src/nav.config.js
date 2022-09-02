@@ -1,6 +1,11 @@
 const navConfig = [{
   name: 'JavaScript',
   children: [{
+    name: '微前端 qiankun loadMicroApp 实现思路',
+    path: '/JS/loadMicroApp',
+    createTime: 1662087907365,
+    updateTime: 1662087907365,
+  }, {
     name: 'img-zoom 图片宽高缩放',
     path: '/JS/img-zoom',
     createTime: '2020-07-08 18:24',

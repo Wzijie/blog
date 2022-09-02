@@ -4,9 +4,10 @@
 
 ## JavaScript
 
+- [微前端 qiankun loadMicroApp 实现思路](https://github.com/Wzijie/blog/blob/master/src/article/JS/loadMicroApp.md)
+- [img-zoom 图片宽高缩放](https://github.com/Wzijie/blog/blob/master/src/article/JS/img-zoom.md)
 - [数组乱序](https://github.com/Wzijie/blog/blob/master/src/article/JS/array-disorder.md)
 - [用遍历来实现斐波那契数列](https://github.com/Wzijie/blog/blob/master/src/article/JS/fibonacci.md)
-- [img-zoom 图片宽高缩放](https://github.com/Wzijie/blog/blob/master/src/article/JS/img-zoom.md)
 
 ## CSS
 
@@ -14,6 +15,7 @@
 
 ## 笔记
 
+- [一次内存泄漏排查过程](https://github.com/Wzijie/blog/blob/master/src/article/note/一次内存泄漏排查过程.md)
 - [超过最大整数精度丢失](https://github.com/Wzijie/blog/blob/master/src/article/note/超过最大整数精度丢失.md)
 
 ## 其他
