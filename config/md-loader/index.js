@@ -25,7 +25,7 @@ const codeFormat = mdContent => {
     // 将`xxxxx`替换为 \`xxxxx`\
     str => str.replace(/`(.{0,})`/g, '\\`$1\\`'),
     // 将${xxxxx}替换为\${xxxxx}，2个$$变量表示插入一个"$"，$1为第一个捕获内容
-    str => str.replace(/\$(\{.{0,}\})/g, '\\$$$1'),
+    str => str.replace(/\$(\{.{0,}?\})/g, '\\$$$1'),
     imgSrcReplace,
   ]
   return formatHandlers.reduce((formatedStr, handler) => handler(formatedStr), mdContent);
