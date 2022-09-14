@@ -1,6 +1,11 @@
 const navConfig = [{
   name: 'JavaScript',
   children: [{
+    name: 'React useState 实现思路',
+    path: '/JS/useState',
+    createTime: 1663145564908,
+    updateTime: 1663145564908,
+  }, {
     name: '微前端 qiankun loadMicroApp 实现思路',
     path: '/JS/loadMicroApp',
     createTime: 1662087907365,
