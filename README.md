@@ -4,6 +4,7 @@
 
 ## JavaScript
 
+- [事件总线设计](https://github.com/Wzijie/blog/blob/master/src/article/JS/eventBus.md)
 - [React useState 实现思路](https://github.com/Wzijie/blog/blob/master/src/article/JS/useState.md)
 - [微前端 qiankun loadMicroApp 实现思路](https://github.com/Wzijie/blog/blob/master/src/article/JS/loadMicroApp.md)
 - [img-zoom 图片宽高缩放](https://github.com/Wzijie/blog/blob/master/src/article/JS/img-zoom.md)

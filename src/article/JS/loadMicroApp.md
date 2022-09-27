@@ -370,4 +370,4 @@ const loadMicroApp = async app => {
 }
 ```
 
-散会
+散会🎉

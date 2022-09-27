@@ -1,6 +1,11 @@
 const navConfig = [{
   name: 'JavaScript',
   children: [{
+    name: '事件总线设计',
+    path: '/JS/eventBus',
+    createTime: 1664261495503,
+    updateTime: 1664261495503,
+  }, {
     name: 'React useState 实现思路',
     path: '/JS/useState',
     createTime: 1663145564908,
