@@ -254,6 +254,8 @@ const proxy = new Proxy(window, {
     })
 
     target[key] = value
+
+    return true
   }
 })
 

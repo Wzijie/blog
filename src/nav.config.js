@@ -1,6 +1,11 @@
 const navConfig = [{
   name: 'JavaScript',
   children: [{
+    name: '确认对象是否被垃圾回收',
+    path: '/JS/weakRef',
+    createTime: 1666340450338,
+    updateTime: 1666340450338,
+  }, {
     name: '事件总线设计',
     path: '/JS/eventBus',
     createTime: 1664261495503,
