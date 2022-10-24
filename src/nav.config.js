@@ -1,6 +1,11 @@
 const navConfig = [{
   name: 'JavaScript',
   children: [{
+    name: '响应式数据原理',
+    path: '/JS/reactive',
+    createTime: 1666590147980,
+    updateTime: 1666590147980,
+  }, {
     name: '确认对象是否被垃圾回收',
     path: '/JS/weakRef',
     createTime: 1666340450338,

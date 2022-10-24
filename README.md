@@ -4,6 +4,7 @@
 
 ## JavaScript
 
+- [响应式数据原理](https://github.com/Wzijie/blog/blob/master/src/article/JS/reactive.md)
 - [确认对象是否被垃圾回收](https://github.com/Wzijie/blog/blob/master/src/article/JS/weakRef.md)
 - [事件总线设计](https://github.com/Wzijie/blog/blob/master/src/article/JS/eventBus.md)
 - [React useState 实现思路](https://github.com/Wzijie/blog/blob/master/src/article/JS/useState.md)

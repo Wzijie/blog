@@ -19,10 +19,13 @@ let arr = Array.from({ length: 100000 }, () => new Test())
 
 const ref = new window.WeakRef(arr)
 
+// 解除引用
 const dereference = () => { arr = null }
 
 const logWeakRef = () => {
   if (arr) console.log(arr.length)
+
+  // 当 arr 被垃圾回收时，ref.deref() 返回 undefined
   if (ref.deref()) console.log('ref')
 }
 
@@ -51,7 +54,7 @@ button2.addEventListener('click', dereference)
 
 1. `target` 需要注册的对象
 2. `heldValue` 回调方法的入参
-3. `unregisterToken` 用于解除注册的令牌
+3. `unregisterToken` 用于解除注册的令牌，可以与 `target` 入参一致，推荐使用 `target`，如不提供该参数则无法解除注册
 
 实例的 `unregister` 方法可用于解除注册过的对象，入参为 `unregisterToken`
 
@@ -79,6 +82,7 @@ const registry = new window.FinalizationRegistry(heldValue => {
   console.log(heldValue)
 })
 
+// 解除注册的令牌
 const unregisterToken = {}
 
 registry.register(arr, 'arr 已被回收', unregisterToken)
